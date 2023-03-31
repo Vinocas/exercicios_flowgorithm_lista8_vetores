@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Usu&#225;rio"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-05-30 11:18:20 "/>
+        <attribute name="created" value="VXN1w6FyaW87VklOSUNJVVNERUxMOzIwMjItMDUtMzA7IjEwOjEzOjU0ICI7Mjk2Mg=="/>
+        <attribute name="edited" value="VXN1w6FyaW87VklOSUNJVVNERUxMOzIwMjItMDUtMzA7IjExOjE4OjIwICI7MjszMDcw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="v1, v2, v3" type="Integer" array="True" size="10"/>
+            <declare name="c, maior, maiorTemp, menor, menorTemp" type="Integer" array="False" size=""/>
+            <assign variable="maiorTemp" expression="0"/>
+            <assign variable="menorTemp" expression="200"/>
+            <for variable="c" start="0" end="9" direction="inc" step="1">
+                <assign variable="v1[c]" expression="random(21)+30"/>
+                <assign variable="v2[c]" expression="random(21)+50"/>
+            </for>
+            <for variable="c" start="0" end="9" direction="inc" step="1">
+                <assign variable="v3[c]" expression="v1[c] + v2[c]"/>
+            </for>
+            <for variable="c" start="0" end="9" direction="inc" step="1">
+                <output expression="&quot;v1[&quot; &amp; c &amp; &quot;] = &quot; &amp; v1[c] &amp; &quot; | &quot;" newline="False"/>
+                <output expression="&quot;v2[&quot; &amp; c &amp; &quot;] = &quot; &amp; v2[c] &amp; &quot; | &quot;" newline="False"/>
+                <output expression="&quot;v3[&quot; &amp; c &amp; &quot;] = &quot; &amp; v3[c]" newline="True"/>
+            </for>
+            <for variable="c" start="0" end="9" direction="inc" step="1">
+                <if expression="v3[c] &gt; maiorTemp">
+                    <then>
+                        <assign variable="maior" expression="v3[c]"/>
+                        <assign variable="maiorTemp" expression="maior"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <for variable="c" start="0" end="9" direction="inc" step="1">
+                <if expression="v3[c] &lt; menorTemp">
+                    <then>
+                        <assign variable="menor" expression="v3[c]"/>
+                        <assign variable="menorTemp" expression="menor"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <for variable="c" start="0" end="9" direction="inc" step="1"/>
+            <output expression="&quot;Maior v3 = &quot; &amp; maior" newline="True"/>
+            <output expression="&quot;Menor v3 = &quot; &amp; menor" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

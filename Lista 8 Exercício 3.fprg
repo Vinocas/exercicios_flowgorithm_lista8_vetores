@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Usu&#225;rio"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-05-30 02:06:24 "/>
+        <attribute name="created" value="VXN1w6FyaW87VklOSUNJVVNERUxMOzIwMjItMDUtMjk7IjExOjI5OjE5ICI7Mjk3OQ=="/>
+        <attribute name="edited" value="VXN1w6FyaW87VklOSUNJVVNERUxMOzIwMjItMDUtMzA7IjAyOjA2OjI0ICI7NDszMDcz"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="n" type="Integer" array="True" size="50"/>
+            <declare name="count, countOut, maiorR, menorR, maior, maiorTemp, menor, menorTemp, nCountTemp" type="Integer" array="False" size=""/>
+            <assign variable="maiorR" expression="55"/>
+            <assign variable="menorR" expression="25"/>
+            <assign variable="countOut" expression="0"/>
+            <assign variable="maior" expression="0"/>
+            <assign variable="menor" expression="0"/>
+            <assign variable="maiorTemp" expression="25"/>
+            <assign variable="menorTemp" expression="55"/>
+            <for variable="count" start="0" end="49" direction="inc" step="1">
+                <assign variable="n[count]" expression="rn(maiorR,menorR)"/>
+                <output expression="&quot;n[&quot; &amp; countOut &amp; &quot;] = &quot; &amp; n[count]" newline="True"/>
+                <assign variable="countOut" expression="countOut + 1"/>
+            </for>
+            <for variable="count" start="0" end="49" direction="inc" step="1">
+                <if expression="n[count] &gt; maiorTemp">
+                    <then>
+                        <assign variable="maior" expression="n[count]"/>
+                        <assign variable="maiorTemp" expression="n[count]"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <for variable="count" start="0" end="49" direction="inc" step="1">
+                <if expression="n[count] &lt; menorTemp">
+                    <then>
+                        <assign variable="menor" expression="n[count]"/>
+                        <assign variable="menorTemp" expression="n[count]"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <output expression="&quot;O maior valor &#233;: &quot; &amp; maior" newline="True"/>
+            <output expression="&quot;O menor valor &#233;: &quot; &amp; menor" newline="True"/>
+        </body>
+    </function>
+    <function name="rn" type="Integer" variable="rn">
+        <parameters>
+            <parameter name="maiorR" type="Integer" array="False"/>
+            <parameter name="menorR" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="rn" type="Integer" array="False" size=""/>
+            <assign variable="rn" expression="random(maiorR)"/>
+            <while expression="rn &lt; menorR">
+                <assign variable="rn" expression="random(maiorR)"/>
+            </while>
+        </body>
+    </function>
+</flowgorithm>
